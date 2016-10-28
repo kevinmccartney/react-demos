@@ -1,6 +1,5 @@
 import React from 'react';
 import { render } from 'react-dom';
-import axios from 'axios';
 
 const TodoCount = ({ todoCount }) => {
     return (
@@ -32,7 +31,7 @@ const TodoForm = ({ addTodo }) => {
 const Todo = ({todo, remove}) => {
     // the individual Todos
     return (
-        <a href="#" className="list-group-item" onClick={() => {remove(todo.id)}}>{todo.text}</a>
+        <li className="list-group-item">{todo.text}<span className="badge" onClick={() => {remove(todo.id)}}>X</span></li>
     );
 }
 
