@@ -8,5 +8,9 @@
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "webpack": "^1.13.3"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --content-base public/ --port 3000 --open",
+    "build": "webpack"
   }
 }
