@@ -2,29 +2,39 @@ import React from 'react';
 import { render } from 'react-dom';
 
 const TodoCount = ({ todoCount }) => {
-    return (
-        <div>
+    if(todoCount != 0) {
+        return (
             <div>
-                <h5>You have ({ todoCount }) things to do.</h5>
+                <div>
+                    <h5>You have ({ todoCount }) things to do.</h5>
+                </div>
             </div>
-        </div>
-    );
+        );
+    } else {
+        return null;
+    }
 }
 
 const TodoForm = ({ addTodo }) => {
     // input Tracker
     let input;
     return (
-        <form onSubmit={(e) => {
-            e.preventDefault();
-            addTodo(input.value);
-            input.value = '';
-        }}>
-            <input className="form-control col-md-12" ref={node => {
-                input = node;
-            }} />
-            <br />
-        </form>
+        <div>
+            <form onSubmit={(e) => {
+                e.preventDefault();
+                addTodo(input.value);
+                input.value = '';
+            }}>
+                <div className="input-group">
+                    <input className="form-control" placeholder="//TODO" ref={node => {
+                        input = node;
+                    }} />
+                    <span className="input-group-btn">
+                        <button className="btn btn-default" type="submit">Add</button>
+                    </span>
+                </div>
+            </form>
+        </div>
     );
 };
 
@@ -41,7 +51,7 @@ const TodoList = ({todos, remove}) => {
 
     });
     return (
-        <div className="list-group" style={{marginTop:'30px'}}>{todoNode}</div>
+        <ul className="list-group" style={{marginTop:'30px'}}>{todoNode}</ul>
     );
 }
 
@@ -70,9 +80,9 @@ class TodoApp extends React.Component{
     render() {
         return(
             <div>
-                <TodoCount todoCount={this.state.data.length}/>
                 <TodoForm addTodo={this.addTodo.bind(this)}/>
-                <TodoList 
+                <TodoCount todoCount={this.state.data.length}/>
+                <TodoList
                     todos={this.state.data}
                     remove={this.handleRemove.bind(this)}
                 />
