@@ -22,6 +22,9 @@ const TodoForm = ({ addTodo }) => {
         <div>
             <form onSubmit={(e) => {
                 e.preventDefault();
+                if(!input.value.trim()) {
+                    return;
+                }
                 addTodo(input.value);
                 input.value = '';
             }}>
