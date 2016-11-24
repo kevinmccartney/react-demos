@@ -7,10 +7,13 @@
     "express": "^4.14.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
+    "react-redux": "^4.4.6",
+    "redux": "^3.6.0",
     "webpack": "^1.13.3"
   },
   "scripts": {
     "start": "webpack-dev-server --content-base public/ --port 3000 --open",
     "build": "webpack"
-  }
+  },
+  "devDependencies": {}
 }
