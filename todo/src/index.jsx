@@ -58,6 +58,25 @@ const TodoList = ({todos, remove}) => {
     );
 }
 
+const TodoWelcome = () => {
+    return(
+        <div>
+            <div>
+                <h1>What are you going to do today?</h1>
+                <h3><em>Let's get started!</em></h3>
+            </div>
+        </div>
+    );
+}
+
+const Footer = () => {
+    return(
+        <footer>
+            <p><a href="https://github.com/kevinmccartney/react-demos/tree/master/to-       do">This project</a> was made by <a href="https://twitter.com/kevinmccartney">@kevinmccartney</a> with some     love & some begrudging acceptance that the Earth will someday be consumed by the sun.</p>
+        </footer>
+    );
+}
+
 window.id = 0;
 class TodoApp extends React.Component{
     constructor(props){
@@ -82,16 +101,18 @@ class TodoApp extends React.Component{
 
     render() {
         return(
-            <div>
+            <div className="container">
+                <TodoWelcome />
                 <TodoForm addTodo={this.addTodo.bind(this)}/>
                 <TodoCount todoCount={this.state.data.length}/>
                 <TodoList
                     todos={this.state.data}
                     remove={this.handleRemove.bind(this)}
                 />
+                <Footer />
             </div>
         )
     }
 }
 
-render(<TodoApp />, document.getElementById('container'));
+render(<TodoApp />, document.getElementById('TodoApp'));
