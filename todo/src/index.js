@@ -4,9 +4,6 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import App from './containers/App'
 import reducer from './reducers'
-// import 'todomvc-app-css/index.css'
-import 'jquery'
-import 'bootstrap'
 
 const store = createStore(reducer)
 
