@@ -39,7 +39,9 @@ export default class TodoTextInput extends Component {
 
   render() {
     return (
-      <form>
+      <form onSubmit={(e) => {
+        e.preventDefault();
+      }}>
         <div className="input-group">
           <input className={
             classnames({
