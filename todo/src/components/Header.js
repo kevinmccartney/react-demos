@@ -14,11 +14,12 @@ export default class Header extends Component {
 
   render() {
     return (
-      <header className="header">
-        <h1>todos</h1>
+      <header className="todo-header">
+        <h1>What are you going to do today?</h1>
+        <h3>Let's get started</h3>
         <TodoTextInput newTodo
                        onSave={this.handleSave}
-                       placeholder="What needs to be done?" />
+                       placeholder="//TODO" />
       </header>
     )
   }

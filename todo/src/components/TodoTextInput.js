@@ -15,9 +15,12 @@ export default class TodoTextInput extends Component {
   }
 
   handleSubmit = e => {
+    // grab the value of the input field
     const text = e.target.value.trim()
-    if (e.which === 13) {
+    // submit on enter keydown and if the input value is NOT an empty string
+    if (e.which === 13 && !!text) {
       this.props.onSave(text)
+
       if (this.props.newTodo) {
         this.setState({ text: '' })
       }
@@ -36,18 +39,25 @@ export default class TodoTextInput extends Component {
 
   render() {
     return (
-      <input className={
-        classnames({
-          edit: this.props.editing,
-          'new-todo': this.props.newTodo
-        })}
-        type="text"
-        placeholder={this.props.placeholder}
-        autoFocus="true"
-        value={this.state.text}
-        onBlur={this.handleBlur}
-        onChange={this.handleChange}
-        onKeyDown={this.handleSubmit} />
+      <form>
+        <div className="input-group">
+          <input className={
+            classnames({
+              edit: this.props.editing,
+              'new-todo': this.props.newTodo
+            }, "form-control")}
+            type="text"
+            placeholder={this.props.placeholder}
+            autoFocus="true"
+            value={this.state.text}
+            onBlur={this.handleBlur}
+            onChange={this.handleChange}
+            onKeyDown={this.handleSubmit} />
+            <span className="input-group-btn">
+              <button className="btn btn-default" type="submit">Add</button>
+            </span>
+        </div>
+      </form>
     )
   }
 }
