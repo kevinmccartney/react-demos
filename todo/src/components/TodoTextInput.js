@@ -38,6 +38,14 @@ export default class TodoTextInput extends Component {
   }
 
   render() {
+    let submitButton
+
+    if(this.props.newTodo) {
+      submitButton = 'Add'
+    } else if(this.props.editing) {
+      submitButton = 'Save'
+    }
+
     return (
       <form onSubmit={(e) => {
         e.preventDefault();
@@ -45,7 +53,7 @@ export default class TodoTextInput extends Component {
         <div className="input-group">
           <input className={
             classnames({
-              edit: this.props.editing,
+              'editing-todo': this.props.editing,
               'new-todo': this.props.newTodo
             }, "form-control")}
             type="text"
@@ -56,7 +64,9 @@ export default class TodoTextInput extends Component {
             onChange={this.handleChange}
             onKeyDown={this.handleSubmit} />
             <span className="input-group-btn">
-              <button className="btn btn-default" type="submit">Add</button>
+              <button className="btn btn-default" type="submit">
+                {submitButton}
+              </button>
             </span>
         </div>
       </form>
