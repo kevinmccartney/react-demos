@@ -1,13 +1,15 @@
 import React, { PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import Header from '../components/Header'
+import AddTodo from '../components/AddTodo'
+import TodoCount from '../components/TodoCount'
 import MainSection from '../components/MainSection'
 import * as TodoActions from '../actions'
 
 const App = ({todos, actions}) => (
-  <div>
-    <Header addTodo={actions.addTodo} />
+  <div className="container">
+    <AddTodo addTodo={actions.addTodo} />
+    <TodoCount todos={todos} />
     <MainSection todos={todos} actions={actions} />
   </div>
 )
