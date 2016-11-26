@@ -11,9 +11,11 @@ export default class TodoCount extends Component {
     const itemWord = activeCount === 1 ? 'thing' : 'things'
 
     return (
-      <span className="todo-count">
-        <strong>{activeCount || 'No'}</strong> {itemWord} left
-      </span>
+      <div className="todo-count panel panel-default">
+        <div className="panel-body">
+          You have <strong>{activeCount || 'No'}</strong> {itemWord} left to do
+        </div>
+      </div>
     )
   }
 
