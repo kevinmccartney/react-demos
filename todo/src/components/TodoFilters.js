@@ -2,43 +2,53 @@ import React, { PropTypes, Component } from 'react'
 import classnames from 'classnames'
 import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../constants/TodoFilters'
 
-const FILTER_TITLES = {
-  [SHOW_ALL]: 'All',
-  [SHOW_ACTIVE]: 'Active',
-  [SHOW_COMPLETED]: 'Completed'
-}
-
 export default class TodoFilters extends Component {
   static propTypes = {
-    filter: PropTypes.object.isRequired,
-    onShow: PropTypes.func.isRequired
+    todos: PropTypes.array.isRequired,
+    filter: PropTypes.string.isRequired,
+    actions: PropTypes.object.isRequired
   }
+
+  static TODO_FILTERS = {
+    [SHOW_ALL]: () => true,
+    [SHOW_ACTIVE]: todo => !todo.completed,
+    [SHOW_COMPLETED]: todo => todo.completed
+  }
+
+  // handleView = filter => {
+  //   this.setState(this.props.filter)
+  // }
+
+  static filteredTodos = todos.filter(TODO_FILTERS[filter])
+  static completedCount = todos.reduce((count, todo) =>
+    todo.completed ? count + 1 : count,
+    0
+  )
 
   renderTodoFilter(completedCount) {
     const { todos } = this.props
-    const { filter } = this.state
+    const { filter } = this.props.state
     const activeCount = todos.length - completedCount
 
-    if (todos.length) {
-      return (
-        <TodoFilters filter={filter}
-                onShow={this.handleShow.bind(this)} />
-      )
-    }
+    // if (todos.length) {
+    //   return (
+    //     <TodoFilters filter={filter} {...actions} />
+    //   )
+    // }
   }
 
-  renderFilterLink(filter) {
-    const title = FILTER_TITLES[filter]
-    const { filter: selectedFilter, onShow } = this.props
-
-    return (
-      <a className={classnames({ selected: filter === selectedFilter })}
-         style={{ cursor: 'pointer' }}
-         onClick={() => onShow(filter)}>
-        {title}
-      </a>
-    )
-  }
+  // renderFilterLink(filter) {
+  //   // const title = FILTER_TITLES[filter]
+  //   const { filter: selectedFilter, onShow } = this.props
+  //
+  //   return (
+  //     <a className={classnames({ selected: filter === selectedFilter })}
+  //        style={{ cursor: 'pointer' }}
+  //        onClick={() => onShow(filter)}>
+  //       {title}
+  //     </a>
+  //   )
+  // }
 
   renderClearButton() {
     const { completedCount, onClearCompleted } = this.props
@@ -53,17 +63,20 @@ export default class TodoFilters extends Component {
   }
 
   render() {
+    // return (
+    //   <footer className="footer">
+    //     // <ul className="filters">
+    //     //   // {[ SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED ].map(filter =>
+    //     //   //   <li key={filter}>
+    //     //   //     {this.renderFilterLink(filter)}
+    //     //   //   </li>
+    //     //   // )}
+    //     // </ul>
+    //     {this.renderClearButton()}
+    //   </footer>
+    // )
     return (
-      <footer className="footer">
-        <ul className="filters">
-          {[ SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED ].map(filter =>
-            <li key={filter}>
-              {this.renderFilterLink(filter)}
-            </li>
-          )}
-        </ul>
-        {this.renderClearButton()}
-      </footer>
+      <div></div>
     )
   }
 }

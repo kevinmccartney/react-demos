@@ -14,17 +14,12 @@ const TODO_FILTERS = {
 export default class TodoList extends Component {
   static propTypes = {
     todos: PropTypes.array.isRequired,
-    actions: PropTypes.object.isRequired
+    actions: PropTypes.object.isRequired,
+    filter: PropTypes.string.isRequired
   }
-
-  state = { filter: SHOW_ALL }
 
   handleClearCompleted = () => {
     this.props.actions.clearCompleted()
-  }
-
-  handleShow = filter => {
-    this.setState({ filter })
   }
 
   renderToggleAll(completedCount) {
@@ -41,7 +36,7 @@ export default class TodoList extends Component {
 
   render() {
     const { todos, actions } = this.props
-    const { filter } = this.state
+    const { filter } = this.props
 
     const filteredTodos = todos.filter(TODO_FILTERS[filter])
     const completedCount = todos.reduce((count, todo) =>
@@ -53,8 +48,8 @@ export default class TodoList extends Component {
       <section className="main">
         <AddTodo addTodo={actions.addTodo} />
         <TodoFilters todos={this.props.todos}
-                     filter={this.state}
-                     onShow={this.handleShow.bind(this)} />
+                     filter={String(this.props.filter)}
+                     actions={this.props.actions}/>
         {this.renderToggleAll(completedCount)}
         <ul className="todo-list">
           {filteredTodos.map(todo =>
