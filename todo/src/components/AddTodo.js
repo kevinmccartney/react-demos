@@ -14,13 +14,11 @@ export default class AddTodo extends Component {
 
   render() {
     return (
-      <header className="todo-header">
-        <h1>What are you going to do today?</h1>
-        <h3>Let's get started</h3>
+      <div className="add-todo-wrapper">
         <TodoTextInput newTodo
                        onSave={this.handleSave}
                        placeholder="//TODO" />
-      </header>
+      </div>
     )
   }
 }

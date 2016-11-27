@@ -8,12 +8,23 @@ const FILTER_TITLES = {
   [SHOW_COMPLETED]: 'Completed'
 }
 
-export default class Footer extends Component {
+export default class TodoFilters extends Component {
   static propTypes = {
-    completedCount: PropTypes.number.isRequired,
-    filter: PropTypes.string.isRequired,
-    onClearCompleted: PropTypes.func.isRequired,
+    filter: PropTypes.object.isRequired,
     onShow: PropTypes.func.isRequired
+  }
+
+  renderTodoFilter(completedCount) {
+    const { todos } = this.props
+    const { filter } = this.state
+    const activeCount = todos.length - completedCount
+
+    if (todos.length) {
+      return (
+        <TodoFilters filter={filter}
+                onShow={this.handleShow.bind(this)} />
+      )
+    }
   }
 
   renderFilterLink(filter) {
