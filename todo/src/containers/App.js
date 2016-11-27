@@ -2,29 +2,31 @@ import React, { PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import TodoList from '../components/TodoList'
-import * as TodoActions from '../actions'
+import * as Actions from '../actions'
 
-const App = ({todos, actions}) => (
+const App = ({todos, actions, filter}) => (
   <div className="container">
     <header>
       <h1>What are you going to do today?</h1>
       <h3>Lets get started</h3>
     </header>
-    <TodoList todos={todos} actions={actions} />
+    <TodoList todos={todos} filter={filter} actions={actions} />
   </div>
 )
 
 App.propTypes = {
   todos: PropTypes.array.isRequired,
+  filter: PropTypes.string.isRequired,
   actions: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-  todos: state.todos
+  todos: state.todos,
+  filter: state.filter
 })
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(TodoActions, dispatch)
+    actions: bindActionCreators(Actions, dispatch)
 })
 
 export default connect(
