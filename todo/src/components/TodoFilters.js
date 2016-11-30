@@ -15,68 +15,43 @@ export default class TodoFilters extends Component {
     [SHOW_COMPLETED]: todo => todo.completed
   }
 
-  // handleView = filter => {
-  //   this.setState(this.props.filter)
-  // }
-
-  static filteredTodos = todos.filter(TODO_FILTERS[filter])
-  static completedCount = todos.reduce((count, todo) =>
-    todo.completed ? count + 1 : count,
-    0
-  )
-
-  renderTodoFilter(completedCount) {
-    const { todos } = this.props
-    const { filter } = this.props.state
-    const activeCount = todos.length - completedCount
-
-    // if (todos.length) {
-    //   return (
-    //     <TodoFilters filter={filter} {...actions} />
-    //   )
-    // }
-  }
-
-  // renderFilterLink(filter) {
-  //   // const title = FILTER_TITLES[filter]
-  //   const { filter: selectedFilter, onShow } = this.props
-  //
-  //   return (
-  //     <a className={classnames({ selected: filter === selectedFilter })}
-  //        style={{ cursor: 'pointer' }}
-  //        onClick={() => onShow(filter)}>
-  //       {title}
-  //     </a>
-  //   )
-  // }
-
-  renderClearButton() {
-    const { completedCount, onClearCompleted } = this.props
-    if (completedCount > 0) {
-      return (
-        <button className="clear-completed"
-                onClick={onClearCompleted} >
-          Clear completed
-        </button>
-      )
+  renderFilterLink(filter) {
+    const FILTER_TITLES = {
+      [SHOW_ALL]: 'All',
+      [SHOW_ACTIVE]: 'Active',
+      [SHOW_COMPLETED]: 'Completed'
     }
+
+    const title = FILTER_TITLES[filter]
+    const { filter: selectedFilter } = this.props
+
+    return (
+      <a className={classnames({ selected: filter === selectedFilter })}>
+        {title}
+      </a>
+    )
   }
 
   render() {
-    // return (
-    //   <footer className="footer">
-    //     // <ul className="filters">
-    //     //   // {[ SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED ].map(filter =>
-    //     //   //   <li key={filter}>
-    //     //   //     {this.renderFilterLink(filter)}
-    //     //   //   </li>
-    //     //   // )}
-    //     // </ul>
-    //     {this.renderClearButton()}
-    //   </footer>
-    // )
+    const { filter, todos } = this.props
+
+    const completedCount = todos.reduce((count, todo) =>
+      todo.completed ? count + 1 : count,
+      0
+    )
+    const activeCount = todos.length - completedCount
+    // const filteredTodos = todos.filter(this.TODO_FILTERS[filter])
+
     return (
-      <div></div>
+      <div>
+        <ul className="filters">
+          {[ SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED ].map(filter =>
+            <li key={filter}>
+              {this.renderFilterLink(filter)}
+            </li>
+          )}
+        </ul>
+      </div>
     )
   }
 }

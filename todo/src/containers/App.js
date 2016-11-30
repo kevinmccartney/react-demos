@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import TodoList from '../components/TodoList'
+import TodoContext from '../components/TodoContext'
 import * as Actions from '../actions'
 
 const App = ({todos, actions, filter}) => (
@@ -10,7 +10,7 @@ const App = ({todos, actions, filter}) => (
       <h1>What are you going to do today?</h1>
       <h3>Lets get started</h3>
     </header>
-    <TodoList todos={todos} filter={filter} actions={actions} />
+    <TodoContext todos={todos} filter={filter} actions={actions} />
   </div>
 )
 
