@@ -6,11 +6,7 @@ export default class AddTodo extends Component {
     addTodo: PropTypes.func.isRequired
   }
 
-  handleSave = text => {
-    if (text.length !== 0) {
-      this.props.addTodo(text)
-    }
-  }
+  handleSave = text => this.props.addTodo(text)
 
   render() {
     return (

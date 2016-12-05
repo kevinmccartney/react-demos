@@ -5,14 +5,7 @@ import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../constants/TodoFilters'
 export default class TodoFilters extends Component {
   static propTypes = {
     todos: PropTypes.array.isRequired,
-    filter: PropTypes.string.isRequired,
-    actions: PropTypes.object.isRequired
-  }
-
-  static TODO_FILTERS = {
-    [SHOW_ALL]: () => true,
-    [SHOW_ACTIVE]: todo => !todo.completed,
-    [SHOW_COMPLETED]: todo => todo.completed
+    filter: PropTypes.string.isRequired
   }
 
   renderFilterLink(filter) {
@@ -34,13 +27,6 @@ export default class TodoFilters extends Component {
 
   render() {
     const { filter, todos } = this.props
-
-    const completedCount = todos.reduce((count, todo) =>
-      todo.completed ? count + 1 : count,
-      0
-    )
-    const activeCount = todos.length - completedCount
-    // const filteredTodos = todos.filter(this.TODO_FILTERS[filter])
 
     return (
       <div>
