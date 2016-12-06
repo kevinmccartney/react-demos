@@ -10,7 +10,7 @@ export default class TodoToolbar extends Component {
 
 
   renderToggleAll() {
-    const { todos, actions, filter } = this.props
+    const { todos, actions } = this.props
     const completedCount = todos.reduce((count, todo) =>
       todo.completed ? count + 1 : count,
       0
