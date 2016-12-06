@@ -1,12 +1,6 @@
 import { ADD_TODO, DELETE_TODO, EDIT_TODO, COMPLETE_TODO, COMPLETE_ALL, CLEAR_COMPLETED } from '../constants/ActionTypes'
 
-const initialtodoList = [
-  {
-    text: 'Use Redux',
-    completed: false,
-    id: 0
-  }
-]
+const initialtodoList = []
 
 export default function todos(todoList = initialtodoList, action) {
   switch (action.type) {

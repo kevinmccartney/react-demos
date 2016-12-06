@@ -1,11 +1,13 @@
 import React, { PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import TodoContext from '../components/TodoContext'
 import * as Actions from '../actions'
+import CallToAction from '../components/CallToAction'
+import AddTodo from '../components/AddTodo'
+import TodoMain from '../components/TodoMain'
 
-const App = ({todos, actions, filter}) => (
-  <div>
+const App = ({todos, actions, filter, init}) => (
+  <div className="todoRoot">
     <nav className="navbar navbar-default">
       <div className="container-fluid">
         <div className="navbar-header">
@@ -16,11 +18,9 @@ const App = ({todos, actions, filter}) => (
       </div>
     </nav>
     <div className="container">
-      <header>
-        <h1>What are you going to do today?</h1>
-        <h3>Lets get started</h3>
-      </header>
-      <TodoContext todos={todos} filter={filter} actions={actions} />
+      <CallToAction todos={todos} init={init} />
+      <AddTodo addTodo={actions.addTodo} />
+      <TodoMain todos={todos} filter={filter} actions={actions} />
     </div>
   </div>
 )
@@ -28,12 +28,14 @@ const App = ({todos, actions, filter}) => (
 App.propTypes = {
   todos: PropTypes.array.isRequired,
   filter: PropTypes.string.isRequired,
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  init: PropTypes.bool.isRequired
 }
 
 const mapStateToProps = state => ({
   todos: state.todos,
-  filter: state.filter
+  filter: state.filter,
+  init: state.init
 })
 
 const mapDispatchToProps = dispatch => ({
