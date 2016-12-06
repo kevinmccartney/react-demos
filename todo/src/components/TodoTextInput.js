@@ -4,6 +4,8 @@ import classnames from 'classnames'
 export default class TodoTextInput extends Component {
   static propTypes = {
     onSave: PropTypes.func.isRequired,
+    init: PropTypes.bool.isRequired,
+    initialize: PropTypes.func.isRequired,
     text: PropTypes.string,
     placeholder: PropTypes.string,
     editing: PropTypes.bool,
@@ -15,14 +17,20 @@ export default class TodoTextInput extends Component {
   }
 
   handleSubmit = e => {
+    const { onSave, init, initialize } = this.props
+
     // grab the value of the input field
     const text = e.target.value.trim()
     // submit on enter keydown and if the input value is NOT an empty string
     if (e.which === 13 && !!text) {
-      this.props.onSave(text)
+      onSave(text)
 
       if (this.props.newTodo) {
         this.setState({ text: '' })
+
+        if (!init) {
+            initialize()
+        }
       }
     }
   }

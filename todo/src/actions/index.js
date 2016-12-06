@@ -1,6 +1,6 @@
 import * as types from '../constants/ActionTypes'
 import * as visibility from '../constants/TodoFilters'
-import * as initialized from '../constants/Initialized'
+import * as init from '../constants/Initialize'
 
 // todo actions
 export const addTodo = text => ({ type: types.ADD_TODO, text })
@@ -16,5 +16,4 @@ export const showCompleted = () => ({ type: visibility.SHOW_COMPLETED })
 export const showActive = () => ({ type: visibility.SHOW_ACTIVE })
 
 // initialized action
-export const noIsInitialized = () => ({ type: initialized.NO_INIT })
-export const isInitialized = () => ({ type: initialized.INIT })
+export const initialize = () => ({ type: init.INIT })

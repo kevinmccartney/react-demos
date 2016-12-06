@@ -8,24 +8,38 @@ export default class TodoMain extends Component {
   static propTypes = {
     todos: PropTypes.array.isRequired,
     actions: PropTypes.object.isRequired,
-    filter: PropTypes.string.isRequired
+    filter: PropTypes.string.isRequired,
+    init: PropTypes.bool.isRequired
+  }
+
+  renderMain() {
+    const { init, todos, actions, filter } = this.props
+
+    if(init && todos.length) {
+      return(
+        <section className="main">
+          <TodoCount todos={todos}/>
+          <TodoToolbar todos={todos} actions={actions} />
+          <TodoFilters todos={todos}
+                       filter={filter}
+                       actions={actions} />
+           <TodoList todos={todos}
+                     filter={filter}
+                     actions={actions} />
+        </section>
+      )
+    }
+    return(
+      <section className="main"></section>
+    )
   }
 
   render() {
-    const { todos, actions } = this.props
-    const { filter } = this.props
 
     return (
-       <section className="main">
-         <TodoCount todos={todos}/>
-         <TodoToolbar todos={todos} actions={actions} />
-         <TodoFilters todos={todos}
-                      filter={filter}
-                      actions={actions} />
-          <TodoList todos={todos}
-                    filter={filter}
-                    actions={actions} />
-       </section>
+      <div>
+        {this.renderMain()}
+      </div>
     )
   }
 }

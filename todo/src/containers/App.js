@@ -19,8 +19,8 @@ const App = ({todos, actions, filter, init}) => (
     </nav>
     <div className="container">
       <CallToAction todos={todos} init={init} />
-      <AddTodo addTodo={actions.addTodo} />
-      <TodoMain todos={todos} filter={filter} actions={actions} />
+      <AddTodo addTodo={actions.addTodo} init={init} initialize={actions.initialize}/>
+      <TodoMain todos={todos} filter={filter} actions={actions} init={init} />
     </div>
   </div>
 )
