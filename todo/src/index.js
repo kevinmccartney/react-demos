@@ -1,12 +1,18 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { createStore } from 'redux'
+import { compose, createStore } from 'redux'
+import persistState from 'redux-localstorage'
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux'
 import App from './containers/App'
 import reducer from './reducers'
 
-const store = createStore(reducer, composeWithDevTools())
+const enhancer = compose(
+  composeWithDevTools(),
+  persistState()
+)
+
+const store = createStore(reducer, enhancer)
 
 render(
   <Provider store={store}>
