@@ -5,12 +5,23 @@ import TodoContext from '../components/TodoContext'
 import * as Actions from '../actions'
 
 const App = ({todos, actions, filter}) => (
-  <div className="container">
-    <header>
-      <h1>What are you going to do today?</h1>
-      <h3>Lets get started</h3>
-    </header>
-    <TodoContext todos={todos} filter={filter} actions={actions} />
+  <div>
+    <nav className="navbar navbar-default">
+      <div className="container-fluid">
+        <div className="navbar-header">
+          <a className="navbar-brand" href="#">
+            <img alt="TodoApp" src="" />
+          </a>
+        </div>
+      </div>
+    </nav>
+    <div className="container">
+      <header>
+        <h1>What are you going to do today?</h1>
+        <h3>Lets get started</h3>
+      </header>
+      <TodoContext todos={todos} filter={filter} actions={actions} />
+    </div>
   </div>
 )
 
