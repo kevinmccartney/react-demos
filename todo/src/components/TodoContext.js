@@ -20,7 +20,8 @@ export default class TodoContext extends Component {
          <AddTodo addTodo={actions.addTodo} />
          <TodoCount todos={todos}/>
          <TodoFilters todos={todos}
-                      filter={filter} />
+                      filter={filter}
+                      actions={actions} />
           <TodoList todos={todos}
                     filter={filter}
                     actions={actions} />
