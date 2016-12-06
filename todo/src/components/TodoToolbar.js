@@ -3,13 +3,14 @@ import React, { PropTypes, Component } from 'react'
 export default class TodoToolbar extends Component {
   static propTypes = {
     todos: PropTypes.array.isRequired,
-    actions: PropTypes.object.isRequired
+    actions: PropTypes.object.isRequired,
+    filter: PropTypes.string.isRequired
   }
 
 
 
   renderToggleAll() {
-    const { todos, actions } = this.props
+    const { todos, actions, filter } = this.props
     const completedCount = todos.reduce((count, todo) =>
       todo.completed ? count + 1 : count,
       0
@@ -17,22 +18,24 @@ export default class TodoToolbar extends Component {
 
     if (todos.length > 0) {
       return (
-        <input className="toggle-all"
-               type="checkbox"
-               checked={completedCount === todos.length}
-               onChange={actions.completeAll} />
+        <div>
+          <input className="toggle-all"
+                 type="checkbox"
+                 checked={completedCount === todos.length}
+                 onChange={actions.completeAll} /> Toggle all
+        </div>
       )
     }
   }
 
   renderClearButton() {
-    const { actions, todos } = this.props
+    const { actions, todos, filter } = this.props
     const completedCount = todos.reduce((count, todo) =>
       todo.completed ? count + 1 : count,
       0
     )
 
-    if (completedCount > 0) {
+    if (completedCount > 0 && filter === "SHOW_ALL" || filter === "SHOW_COMPLETED") {
       return (
         <button className="clear-completed"
                 onClick={actions.clearCompleted} >
@@ -45,7 +48,7 @@ export default class TodoToolbar extends Component {
   render() {
     return (
       <div>
-        Toggle all {this.renderToggleAll()}
+         {this.renderToggleAll()}
         {this.renderClearButton()}
       </div>
     )

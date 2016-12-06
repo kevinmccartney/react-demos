@@ -19,7 +19,7 @@ export default class TodoMain extends Component {
       return(
         <section className="main">
           <TodoCount todos={todos}/>
-          <TodoToolbar todos={todos} actions={actions} />
+          <TodoToolbar todos={todos} actions={actions} filter={filter}/>
           <TodoFilters todos={todos}
                        filter={filter}
                        actions={actions} />
