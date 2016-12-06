@@ -1,4 +1,5 @@
 import * as types from '../constants/ActionTypes'
+import * as visibility from '../constants/TodoFilters'
 
 // todo actions
 export const addTodo = text => ({ type: types.ADD_TODO, text })
@@ -9,6 +10,6 @@ export const completeAll = () => ({ type: types.COMPLETE_ALL })
 export const clearCompleted = () => ({ type: types.CLEAR_COMPLETED })
 
 // visibility actions
-export const showAll = () => ({ type: types.SHOW_ALL })
-export const showCompleted = () => ({ type: types.SHOW_COMPLETED })
-export const showActive = () => ({ type: types.SHOW_ACTIVE })
+export const showAll = () => ({ type: visibility.SHOW_ALL })
+export const showCompleted = () => ({ type: visibility.SHOW_COMPLETED })
+export const showActive = () => ({ type: visibility.SHOW_ACTIVE })
