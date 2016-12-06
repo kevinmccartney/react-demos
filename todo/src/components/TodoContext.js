@@ -18,12 +18,12 @@ export default class TodoContext extends Component {
     return (
        <section className="main">
          <AddTodo addTodo={actions.addTodo} />
-         <TodoCount todos={this.props.todos}/>
-         <TodoFilters todos={this.props.todos}
-                      filter={String(this.props.filter)} />
-          <TodoList todos={this.props.todos}
-                    filter={String(this.props.filter)}
-                    actions={this.props.actions} />
+         <TodoCount todos={todos}/>
+         <TodoFilters todos={todos}
+                      filter={filter} />
+          <TodoList todos={todos}
+                    filter={filter}
+                    actions={actions} />
        </section>
     )
   }

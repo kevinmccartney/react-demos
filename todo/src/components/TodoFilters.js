@@ -26,8 +26,6 @@ export default class TodoFilters extends Component {
   }
 
   render() {
-    const { filter, todos } = this.props
-
     return (
       <div>
         <ul className="filters">
