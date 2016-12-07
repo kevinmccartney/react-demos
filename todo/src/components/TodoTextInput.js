@@ -17,7 +17,7 @@ export default class TodoTextInput extends Component {
   }
 
   handleSubmit = e => {
-    const { onSave, init, isInitialized } = this.props
+    const { onSave } = this.props
 
     // grab the value of the input field
     const text = e.target.value.trim()
@@ -27,10 +27,6 @@ export default class TodoTextInput extends Component {
 
       if (this.props.newTodo) {
         this.setState({ text: '' })
-
-        if (!isInitialized) {
-            init()
-        }
       }
     }
   }
@@ -72,7 +68,9 @@ export default class TodoTextInput extends Component {
             onChange={this.handleChange}
             onKeyDown={this.handleSubmit} />
             <span className="input-group-btn">
-              <button className="btn btn-default" type="submit">
+              <button className="btn btn-default"
+                      onClick={this.props.onSave}
+                      type="submit">
                 {submitButton}
               </button>
             </span>

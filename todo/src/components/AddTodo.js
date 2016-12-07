@@ -8,7 +8,15 @@ export default class AddTodo extends Component {
     init: PropTypes.func.isRequired
   }
 
-  handleSave = text => this.props.addTodo(text)
+  handleSave = text => {
+    const { isInitialized, init, addTodo } = this.props
+
+    addTodo(text)
+
+    if(!isInitialized) {
+      init()
+    }
+  }
 
   render() {
     const { init, isInitialized } = this.props
@@ -19,6 +27,7 @@ export default class AddTodo extends Component {
                        init={init}
                        isInitialized={isInitialized}
                        onSave={this.handleSave}
+                       handleSave={this.handleSave}
                        placeholder="//TODO" />
       </div>
     )
