@@ -6,7 +6,7 @@ import CallToAction from '../components/CallToAction'
 import AddTodo from '../components/AddTodo'
 import TodoMain from '../components/TodoMain'
 
-const App = ({todos, actions, filter, init}) => (
+const App = ({todos, actions, filter, isInitialized}) => (
   <div className="todoRoot">
     <nav className="navbar navbar-default">
       <div className="container-fluid">
@@ -18,9 +18,9 @@ const App = ({todos, actions, filter, init}) => (
       </div>
     </nav>
     <div className="container">
-      <CallToAction todos={todos} init={init} />
-      <AddTodo addTodo={actions.addTodo} init={init} initialize={actions.initialize}/>
-      <TodoMain todos={todos} filter={filter} actions={actions} init={init} />
+      <CallToAction todos={todos} isInitialized={isInitialized} />
+      <AddTodo addTodo={actions.addTodo} init={actions.init} isInitialized={isInitialized}/>
+      <TodoMain todos={todos} filter={filter} actions={actions} isInitialized={isInitialized} />
     </div>
   </div>
 )
@@ -29,13 +29,13 @@ App.propTypes = {
   todos: PropTypes.array.isRequired,
   filter: PropTypes.string.isRequired,
   actions: PropTypes.object.isRequired,
-  init: PropTypes.bool.isRequired
+  isInitialized: PropTypes.bool.isRequired
 }
 
 const mapStateToProps = state => ({
   todos: state.todos,
   filter: state.filter,
-  init: state.init
+  isInitialized: state.isInitialized
 })
 
 const mapDispatchToProps = dispatch => ({

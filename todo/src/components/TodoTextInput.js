@@ -4,8 +4,8 @@ import classnames from 'classnames'
 export default class TodoTextInput extends Component {
   static propTypes = {
     onSave: PropTypes.func.isRequired,
-    init: PropTypes.bool.isRequired,
-    initialize: PropTypes.func.isRequired,
+    init: PropTypes.func.isRequired,
+    isInitialized: PropTypes.bool.isRequired,
     text: PropTypes.string,
     placeholder: PropTypes.string,
     editing: PropTypes.bool,
@@ -17,7 +17,7 @@ export default class TodoTextInput extends Component {
   }
 
   handleSubmit = e => {
-    const { onSave, init, initialize } = this.props
+    const { onSave, init, isInitialized } = this.props
 
     // grab the value of the input field
     const text = e.target.value.trim()
@@ -28,8 +28,8 @@ export default class TodoTextInput extends Component {
       if (this.props.newTodo) {
         this.setState({ text: '' })
 
-        if (!init) {
-            initialize()
+        if (!isInitialized) {
+            init()
         }
       }
     }

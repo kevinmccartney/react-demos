@@ -1,6 +1,6 @@
 import * as todos from '../constants/Todos'
 import * as filter from '../constants/Filters'
-import * as init from '../constants/Init'
+import * as initialized from '../constants/Init'
 
 // actions to preform on the individual todos
 export const addTodo = text => ({ type: todos.ADD_TODO, text })
@@ -18,4 +18,4 @@ export const showCompleted = () => ({ type: filter.SHOW_COMPLETED })
 export const showActive = () => ({ type: filter.SHOW_ACTIVE })
 
 // set the initialized state
-export const initialize = () => ({ type: init.INIT })
+export const init = () => ({ type: initialized.INIT })

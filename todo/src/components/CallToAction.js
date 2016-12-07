@@ -3,13 +3,13 @@ import React, { Component, PropTypes } from 'react'
 export default class CallToAction extends Component {
   static propTypes = {
     todos: PropTypes.array.isRequired,
-    init: PropTypes.bool.isRequired
+    isInitialized: PropTypes.bool.isRequired
   }
 
   renderCTA() {
-    const { todos, init } = this.props
+    const { todos, isInitialized } = this.props
 
-    if(init) {
+    if(isInitialized) {
       if(todos.length) {
         return(
           <h3>Remember to take a break too ;)</h3>

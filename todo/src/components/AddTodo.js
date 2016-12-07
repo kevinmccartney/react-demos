@@ -4,21 +4,20 @@ import TodoTextInput from './TodoTextInput'
 export default class AddTodo extends Component {
   static propTypes = {
     addTodo: PropTypes.func.isRequired,
-    initialize: PropTypes.func.isRequired,
-    init: PropTypes.bool.isRequired
+    isInitialized: PropTypes.bool.isRequired,
+    init: PropTypes.func.isRequired
   }
 
   handleSave = text => this.props.addTodo(text)
-  func = () => "hello"
 
   render() {
-    const { init, initialize } = this.props
+    const { init, isInitialized } = this.props
 
     return (
       <div className="add-todo-wrapper">
         <TodoTextInput newTodo
                        init={init}
-                       initialize={initialize}
+                       isInitialized={isInitialized}
                        onSave={this.handleSave}
                        placeholder="//TODO" />
       </div>

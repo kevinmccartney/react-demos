@@ -7,14 +7,8 @@ export default class TodoToolbar extends Component {
     filter: PropTypes.string.isRequired
   }
 
-
-
-  renderToggleAll() {
+  renderToggleAll(completedCount) {
     const { todos, actions } = this.props
-    const completedCount = todos.reduce((count, todo) =>
-      todo.completed ? count + 1 : count,
-      0
-    )
 
     if (todos.length > 0) {
       return (
@@ -28,12 +22,8 @@ export default class TodoToolbar extends Component {
     }
   }
 
-  renderClearButton() {
-    const { actions, todos, filter } = this.props
-    const completedCount = todos.reduce((count, todo) =>
-      todo.completed ? count + 1 : count,
-      0
-    )
+  renderClearButton(completedCount) {
+    const { actions, filter } = this.props
 
     if (completedCount > 0 && filter === "SHOW_ALL" || filter === "SHOW_COMPLETED") {
       return (
@@ -46,10 +36,16 @@ export default class TodoToolbar extends Component {
   }
 
   render() {
+    const { todos } = this.props
+    const completedCount = todos.reduce((count, todo) =>
+      todo.completed ? count + 1 : count,
+      0
+    )
+
     return (
       <div>
-         {this.renderToggleAll()}
-        {this.renderClearButton()}
+        {this.renderToggleAll(completedCount)}
+        {this.renderClearButton(completedCount)}
       </div>
     )
   }
