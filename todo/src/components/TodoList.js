@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import TodoItem from './TodoItem'
-import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../constants/TodoFilters'
+import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../constants/Filters'
 
 const TODO_FILTERS = {
   [SHOW_ALL]: () => true,

@@ -1,4 +1,4 @@
-import { INIT, NO_INIT } from '../constants/Initialize'
+import { INIT, NO_INIT } from '../constants/Init'
 
 const initialState = NO_INIT
 
