@@ -16,11 +16,26 @@ export default class TodoTextInput extends Component {
     text: this.props.text || ''
   }
 
-  handleSubmit = e => {
+  handleClickSubmission = e => {
     const { onSave } = this.props
 
     // grab the value of the input field
-    const text = e.target.value.trim()
+    const text = document.getElementById('todo-input').value.trim()
+    // submit on enter keydown and if the input value is NOT an empty string
+    if (!!text) {
+      onSave(text)
+
+      if (this.props.newTodo) {
+        this.setState({ text: '' })
+      }
+    }
+  }
+
+  handleKeySubmission = e => {
+    const { onSave } = this.props
+
+    // grab the value of the input field
+    const text = document.getElementById('todo-input').value.trim()
     // submit on enter keydown and if the input value is NOT an empty string
     if (e.which === 13 && !!text) {
       onSave(text)
@@ -60,19 +75,19 @@ export default class TodoTextInput extends Component {
               'editing-todo': this.props.editing,
               'new-todo': this.props.newTodo
             }, "form-control")}
+            id="todo-input"
             type="text"
             placeholder={this.props.placeholder}
             autoFocus="true"
             value={this.state.text}
             onBlur={this.handleBlur}
             onChange={this.handleChange}
-            onKeyDown={this.handleSubmit} />
+            onKeyDown={this.handleKeySubmission} />
             <span className="input-group-btn">
-              <button className="btn btn-default"
-                      onClick={this.props.onSave}
-                      type="submit">
+              <a className="btn btn-default"
+                      onClick={this.handleClickSubmission}>
                 {submitButton}
-              </button>
+              </a>
             </span>
         </div>
       </form>
