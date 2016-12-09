@@ -25,7 +25,7 @@ export default class TodoToolbar extends Component {
   renderClearButton(completedCount) {
     const { actions, filter } = this.props
 
-    if (completedCount > 0 && filter === "SHOW_ALL" || filter === "SHOW_COMPLETED") {
+    if (completedCount > 0 && (filter === "SHOW_ALL" || filter === "SHOW_COMPLETED")) {
       return (
         <button className="clear-completed"
                 onClick={actions.clearCompleted} >
