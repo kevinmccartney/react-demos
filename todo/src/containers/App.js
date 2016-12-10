@@ -2,21 +2,14 @@ import React, { PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as Actions from '../actions'
+import Header from '../components/Header'
 import CallToAction from '../components/CallToAction'
 import AddTodo from '../components/AddTodo'
 import TodoMain from '../components/TodoMain'
 
 const App = ({todos, actions, filter, isInitialized}) => (
-  <div className="todoRoot">
-    <nav className="navbar navbar-default">
-      <div className="container-fluid">
-        <div className="navbar-header">
-          <a className="navbar-brand" href="#">
-            <img alt="TodoApp" src="" />
-          </a>
-        </div>
-      </div>
-    </nav>
+  <div className="todo-app">
+    <Header />
     <div className="container">
       <CallToAction todos={todos} isInitialized={isInitialized} />
       <AddTodo addTodo={actions.addTodo} init={actions.init} isInitialized={isInitialized}/>
