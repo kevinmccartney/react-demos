@@ -5,7 +5,7 @@ import * as Actions from '../actions'
 import Header from '../components/Header'
 import CallToAction from '../components/CallToAction'
 import AddTodo from '../components/AddTodo'
-import TodoMain from '../components/TodoMain'
+import MainSection from '../components/MainSection'
 
 const App = ({todos, actions, filter, isInitialized}) => (
   <div className="todo-app">
@@ -13,7 +13,7 @@ const App = ({todos, actions, filter, isInitialized}) => (
     <div className="container">
       <CallToAction todos={todos} isInitialized={isInitialized} />
       <AddTodo addTodo={actions.addTodo} init={actions.init} isInitialized={isInitialized}/>
-      <TodoMain todos={todos} filter={filter} actions={actions} isInitialized={isInitialized} />
+      <MainSection todos={todos} filter={filter} actions={actions} isInitialized={isInitialized} />
     </div>
   </div>
 )

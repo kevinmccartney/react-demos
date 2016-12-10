@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 import TodoCount from './TodoCount'
-import TodoToolbar from './TodoToolbar'
-import TodoFilters from './TodoFilters'
+import Toolbar from './Toolbar'
+import Filters from './Filters'
 import TodoList from './TodoList'
 
-export default class TodoMain extends Component {
+export default class MainSection extends Component {
   static propTypes = {
     todos: PropTypes.array.isRequired,
     actions: PropTypes.object.isRequired,
@@ -19,8 +19,8 @@ export default class TodoMain extends Component {
       return(
         <section className="main">
           <TodoCount todos={todos}/>
-          <TodoToolbar todos={todos} actions={actions} filter={filter}/>
-          <TodoFilters todos={todos}
+          <Toolbar todos={todos} actions={actions} filter={filter}/>
+          <Filters todos={todos}
                        filter={filter}
                        actions={actions} />
            <TodoList todos={todos}

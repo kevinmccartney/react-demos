@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react'
-import TodoTextInput from './TodoTextInput'
+import TextField from './TextField'
 
 export default class AddTodo extends Component {
   static propTypes = {
@@ -23,7 +23,7 @@ export default class AddTodo extends Component {
 
     return (
       <div className="add-todo-wrapper">
-        <TodoTextInput newTodo
+        <TextField newTodo
                        init={init}
                        isInitialized={isInitialized}
                        onSave={this.handleSave}

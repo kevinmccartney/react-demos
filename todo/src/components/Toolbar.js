@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react'
 
-export default class TodoToolbar extends Component {
+export default class Toolbar extends Component {
   static propTypes = {
     todos: PropTypes.array.isRequired,
     actions: PropTypes.object.isRequired,

@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react'
 import classnames from 'classnames'
 import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../constants/Filters'
 
-export default class TodoFilters extends Component {
+export default class Filters extends Component {
   static propTypes = {
     todos: PropTypes.array.isRequired,
     actions: PropTypes.object.isRequired,

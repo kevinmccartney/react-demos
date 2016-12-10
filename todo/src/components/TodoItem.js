@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import classnames from 'classnames'
-import TodoTextInput from './TodoTextInput'
+import TextField from './TextField'
 
 export default class TodoItem extends Component {
   static propTypes = {
