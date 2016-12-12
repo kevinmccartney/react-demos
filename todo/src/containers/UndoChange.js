@@ -15,6 +15,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 UndoButton = connect(
+  null,
   mapDispatchToProps
 )(UndoButton)
 
