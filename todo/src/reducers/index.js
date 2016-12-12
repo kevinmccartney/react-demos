@@ -8,6 +8,7 @@ import { ADD_TODO, EDIT_TODO, COMPLETE_TODO, COMPLETE_ALL } from '../constants/T
 const rootReducer = combineReducers({
   todos: undoable(todos,
     {
+      limit: 1,
       filter: excludeAction([
         EDIT_TODO,
         ADD_TODO,
