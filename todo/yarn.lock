@@ -4557,7 +4557,13 @@ redux-localstorage:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/redux-localstorage/-/redux-localstorage-0.4.1.tgz#faf6d719c581397294d811473ffcedee065c933c"
 
-redux@^3.5.2:
+redux-undo:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/redux-undo/-/redux-undo-0.6.1.tgz#ff407749b8f468bead636e413819e92c0982eeca"
+  dependencies:
+    redux "^3.0.2"
+
+redux@^3.0.2, redux@^3.5.2:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/redux/-/redux-3.6.0.tgz#887c2b3d0b9bd86eca2be70571c27654c19e188d"
   dependencies:
