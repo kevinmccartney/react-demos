@@ -8,6 +8,10 @@ let UndoButton = ({ onUndo }) => (
   </div>
 )
 
+const mapStateToProps = state => ({
+  isUndoVisible: state.isUndoVisible,
+})
+
 const mapDispatchToProps = (dispatch) => {
   return {
     onUndo: () => dispatch(UndoActionCreators.undo())
@@ -15,7 +19,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 UndoButton = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(UndoButton)
 
