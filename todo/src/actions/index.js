@@ -18,4 +18,4 @@ export const showCompleted = () => ({ type: filter.SHOW_COMPLETED })
 export const showActive = () => ({ type: filter.SHOW_ACTIVE })
 
 // set the initialized state
-export const init = () => ({ type: initialized.INIT })
+export const init = value => ({ type: initialized.INIT, value })

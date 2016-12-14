@@ -1,2 +1,2 @@
-export const UNDO_IS_VISIBLE = true
-export const UNDO_IS_NOT_VISIBLE = false
+export const UNDO_IS_VISIBLE = 'UNDO_IS_VISIBLE'
+export const UNDO_IS_NOT_VISIBLE = 'UNDO_IS_NOT_VISIBLE'

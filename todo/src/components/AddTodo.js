@@ -14,7 +14,7 @@ export default class AddTodo extends Component {
     addTodo(text)
 
     if(!isInitialized) {
-      init()
+      init(true)
     }
   }
 

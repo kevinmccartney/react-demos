@@ -1,11 +1,11 @@
-import { INIT, NO_INIT } from '../constants/Init'
+import { INIT } from '../constants/Init'
 
-const initialState = NO_INIT
+const initialState = false
 
 export default function isInitialized(isInit = initialState, action) {
   switch(action.type) {
     case INIT:
-      return INIT
+      return true
 
     default:
       return isInit
