@@ -3,15 +3,16 @@ import { connect } from 'react-redux'
 import { ActionCreators as UndoActionCreators } from 'redux-undo'
 
 let UndoButton = ({ onUndo, isUndoVisible }) => {
-  if(isUndoVisible) {
+  // if(isUndoVisible) {
     return(
       <div>
         <button onClick={onUndo}>Undo</button>
       </div>
     )
-  } else {
-    return( <div></div> )
-  }
+  // } 
+  // else {
+  //   return( <div></div> )
+  // }
 }
 
 UndoButton.propTypes = {
