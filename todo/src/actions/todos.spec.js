@@ -36,14 +36,13 @@ describe('todo actions', () => {
 
   it('completeAll should create COMPLETE_ALL action', () => {
     expect(actions.completeAll()).toEqual({
-      type: types.COMPLETE_All
+      type: types.COMPLETE_ALL
     })
   })
 
-  it('addTodo should create ADD_TODO action', () => {
-    expect(actions.addTodo('Test your actions!')).toEqual({
-      type: types.ADD_TODO,
-      text: 'Test your actions!'
+  it('clearCompleted should create CLEAR_COMPLETED action', () => {
+    expect(actions.clearCompleted()).toEqual({
+      type: types.CLEAR_COMPLETED,
     })
   })
 
