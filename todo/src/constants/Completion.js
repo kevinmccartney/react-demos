@@ -1,0 +1,2 @@
+export const COMPLETE_ALL = 'COMPLETE_ALL'
+export const CLEAR_COMPLETED = 'CLEAR_COMPLETED'

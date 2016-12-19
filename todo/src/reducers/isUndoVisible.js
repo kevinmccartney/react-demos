@@ -1,4 +1,4 @@
-import { UNDO_IS_VISIBLE, UNDO_IS_NOT_VISIBLE } from '../constants/undoVisible'
+import { UNDO_IS_VISIBLE, UNDO_IS_NOT_VISIBLE } from '../constants/UndoVisible'
 
 const initialState = false
 
