@@ -1,15 +1,17 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { compose, createStore } from 'redux'
+import { compose, createStore, applyMiddleware } from 'redux'
 import persistState from 'redux-localstorage'
 import { composeWithDevTools } from 'redux-devtools-extension';
+import createLogger from 'redux-logger';
 import { Provider } from 'react-redux'
 import App from './containers/App'
 import rootReducer from './reducers'
 
 const enhancer = compose(
   composeWithDevTools(),
-  persistState()
+  persistState(),
+  applyMiddleware(createLogger())
 )
 
 const store = createStore(rootReducer, enhancer)
