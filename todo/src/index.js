@@ -5,14 +5,14 @@ import persistState from 'redux-localstorage'
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux'
 import App from './containers/App'
-import reducer from './reducers'
+import rootReducer from './reducers'
 
 const enhancer = compose(
   composeWithDevTools(),
   persistState()
 )
 
-const store = createStore(reducer, enhancer)
+const store = createStore(rootReducer, enhancer)
 
 render(
   <Provider store={store}>

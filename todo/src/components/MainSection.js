@@ -26,8 +26,11 @@ export default class MainSection extends Component {
            <TodoList todos={todos}
                      filter={filter}
                      actions={actions} />
+
         </section>
       )
+
+
     }
     return(
       <section className="main"></section>

@@ -2,26 +2,26 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { ActionCreators as UndoActionCreators } from 'redux-undo'
 
-let UndoButton = ({ onUndo, isUndoVisible }) => {
+let UndoButton = ({ onUndo, undoVisbility }) => {
   // if(isUndoVisible) {
     return(
       <div>
         <button onClick={onUndo}>Undo</button>
       </div>
     )
-  // } 
+  // }
   // else {
   //   return( <div></div> )
   // }
 }
 
 UndoButton.propTypes = {
-  isUndoVisible: PropTypes.bool.isRequired,
+  undoVisbility: PropTypes.bool.isRequired,
   onUndo: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
-  isUndoVisible: state.isUndoVisible,
+  undoVisbility: state.undoVisbility,
 })
 
 const mapDispatchToProps = (dispatch) => {
