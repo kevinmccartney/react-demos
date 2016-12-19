@@ -12,7 +12,7 @@ const App = ({todos, actions, filter, init}) => (
   <div className="todo-app">
     <Header />
     <div className="container">
-      <UndoChange />
+      <UndoChange hideUndo={actions.hideUndo}/>
       <CallToAction todos={todos.present} init={init} />
       <AddTodo addTodo={actions.addTodo} initialize={actions.initialize} init={init}/>
       <MainSection todos={todos.present} filter={filter} actions={actions} init={init} />
