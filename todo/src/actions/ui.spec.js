@@ -29,15 +29,15 @@ describe('test', () => {
     })
   })
 
-  it('showUndo should create UNDO_IS_VISIBLE action', () => {
+  it('showUndo should create SHOW_UNDO action', () => {
     expect(actions.showUndo()).toEqual({
-      type: types.UNDO_IS_VISIBLE
+      type: types.SHOW_UNDO
     })
   })
 
-  it('hideUndo should create UNDO_IS_NOT_VISIBLE action', () => {
+  it('hideUndo should create HIDE_UNDO action', () => {
     expect(actions.hideUndo()).toEqual({
-      type: types.UNDO_IS_NOT_VISIBLE
+      type: types.HIDE_UNDO
     })
   })
 

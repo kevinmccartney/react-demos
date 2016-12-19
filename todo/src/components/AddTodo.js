@@ -4,28 +4,25 @@ import TextField from './TextField'
 export default class AddTodo extends Component {
   static propTypes = {
     addTodo: PropTypes.func.isRequired,
-    isInitialized: PropTypes.bool.isRequired,
-    init: PropTypes.func.isRequired
+    init: PropTypes.bool.isRequired,
+    initialize: PropTypes.func.isRequired
   }
 
   handleSave = text => {
-    const { isInitialized, init, addTodo } = this.props
+    const { init, initialize, addTodo } = this.props
 
     addTodo(text)
 
-    if(!isInitialized) {
-      init(true)
+    if(!init) {
+      initialize(true)
     }
   }
 
   render() {
-    const { init, isInitialized } = this.props
 
     return (
       <div className="add-todo-wrapper">
         <TextField newTodo
-                       init={init}
-                       isInitialized={isInitialized}
                        onSave={this.handleSave}
                        handleSave={this.handleSave}
                        placeholder="//TODO" />

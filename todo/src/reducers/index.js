@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import undoable, { excludeAction } from 'redux-undo';
 import todos from './todos'
-import { isUndoVisible, isInitialized, filterVisible } from './ui'
+import { isInit, todoFilter, undoVisibility } from './ui'
 
 import { ADD_TODO, EDIT_TODO, COMPLETE_TODO } from '../constants/Todos'
 
@@ -16,9 +16,9 @@ const rootReducer = combineReducers({
       ]),
     }
   ),
-  undoVisbility: isUndoVisible,
-  isInitialized,
-  filter: filterVisible
+  undoVisibility,
+  init: isInit,
+  filter: todoFilter
 })
 
 export default rootReducer

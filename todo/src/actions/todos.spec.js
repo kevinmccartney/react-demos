@@ -1,6 +1,3 @@
-// as of now, we are just testing actions for the todos. I will most
-// likely separate the actions into their own files
-
 import * as actions from './todos'
 import * as types from '../constants/Todos'
 

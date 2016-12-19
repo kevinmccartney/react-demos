@@ -4,8 +4,6 @@ import classnames from 'classnames'
 export default class TextField extends Component {
   static propTypes = {
     onSave: PropTypes.func.isRequired,
-    init: PropTypes.func.isRequired,
-    isInitialized: PropTypes.bool.isRequired,
     text: PropTypes.string,
     placeholder: PropTypes.string,
     editing: PropTypes.bool,

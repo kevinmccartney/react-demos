@@ -9,13 +9,13 @@ export default class MainSection extends Component {
     todos: PropTypes.array.isRequired,
     actions: PropTypes.object.isRequired,
     filter: PropTypes.string.isRequired,
-    isInitialized: PropTypes.bool.isRequired
+    init: PropTypes.bool.isRequired
   }
 
   renderMain() {
-    const { isInitialized, todos, actions, filter } = this.props
+    const { init, todos, actions, filter } = this.props
 
-    if(isInitialized && todos.length) {
+    if(init && todos.length) {
       return(
         <section className="main">
           <TodoCount todos={todos}/>

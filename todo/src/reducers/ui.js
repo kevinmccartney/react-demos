@@ -1,35 +1,35 @@
 import * as types from '../constants/UI'
 
-const initialIsUndoVisible = false
+const undoVisibilityValue = false
 
-export function isUndoVisible(isUndoVisible = initialIsUndoVisible, action) {
+export function undoVisibility(undoVisibility = undoVisibilityValue, action) {
   switch(action.type) {
-    case types.UNDO_IS_VISIBLE:
+    case types.SHOW_UNDO:
       return true
 
-    case types.UNDO_IS_NOT_VISIBLE:
+    case types.HIDE_UNDO:
       return false
 
     default:
-      return isUndoVisible
+      return undoVisibility
   }
 }
 
-const initialIsInitialized = false
+const initValue = false
 
-export function isInitialized(isInit = initialIsInitialized, action) {
+export function isInit(init = initValue, action) {
   switch(action.type) {
     case types.INIT:
       return true
 
     default:
-      return isInit
+      return init
   }
 }
 
-const initialViewFilter = types.SHOW_ALL
+const filterValue = types.SHOW_ALL
 
-export function filterVisible(viewFilter = initialViewFilter, action) {
+export function todoFilter(filter = filterValue, action) {
   switch(action.type) {
     case types.SHOW_ALL:
       return types.SHOW_ALL
@@ -41,6 +41,6 @@ export function filterVisible(viewFilter = initialViewFilter, action) {
       return types.SHOW_ACTIVE
 
     default:
-      return viewFilter
+      return filter
   }
 }
