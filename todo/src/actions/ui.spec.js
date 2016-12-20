@@ -28,17 +28,5 @@ describe('test', () => {
       type: types.INIT
     })
   })
-
-  it('showUndo should create SHOW_UNDO action', () => {
-    expect(actions.showUndo()).toEqual({
-      type: types.SHOW_UNDO
-    })
-  })
-
-  it('hideUndo should create HIDE_UNDO action', () => {
-    expect(actions.hideUndo()).toEqual({
-      type: types.HIDE_UNDO
-    })
-  })
-
+  
 })

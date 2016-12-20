@@ -7,7 +7,3 @@ export const showActive = () => ({ type: ui.SHOW_ACTIVE })
 
 // set the initialized state
 export const initialize = value => ({ type: ui.INIT, value })
-
-// show or hide the undo button
-export const showUndo = () => ({ type: ui.SHOW_UNDO })
-export const hideUndo = () => ({ type: ui.HIDE_UNDO })

@@ -1,20 +1,5 @@
 import * as types from '../constants/UI'
 
-const undoVisibilityValue = false
-
-export function undoVisibility(undoVisibility = undoVisibilityValue, action) {
-  switch(action.type) {
-    case types.SHOW_UNDO:
-      return true
-
-    case types.HIDE_UNDO:
-      return false
-
-    default:
-      return undoVisibility
-  }
-}
-
 const initValue = false
 
 export function isInit(init = initValue, action) {

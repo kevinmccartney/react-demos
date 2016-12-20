@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as Actions from '../actions'
-import UndoChange from './UndoChange'
 import Header from '../components/Header'
 import CallToAction from '../components/CallToAction'
 import AddTodo from '../components/AddTodo'
@@ -13,7 +12,6 @@ const App = ({todos, actions, filter, init}) => (
   <div className="todo-app">
     <Header />
     <div className="container">
-      <UndoChange hideUndo={actions.hideUndo}/>
       <CallToAction todos={todos.present} init={init} />
       <AddTodo addTodo={actions.addTodo} initialize={actions.initialize} init={init}/>
       <MainSection todos={todos.present} filter={filter} actions={actions} init={init} />
