@@ -23,14 +23,18 @@ export default class Toolbar extends Component {
   }
 
   renderClearButton(completedCount) {
-    const { actions, filter } = this.props
+    const { filter } = this.props
 
     if (completedCount > 0 && (filter === "SHOW_ALL" || filter === "SHOW_COMPLETED")) {
       return (
-        <button className="clear-completed"
-                onClick={actions.clearCompleted} >
-          Clear completed
-        </button>
+        <div>
+          <button type="button"
+                  className="clear-completed-btn"
+                  data-toggle="modal"
+                  data-target="#delete-completed-todos-modal">
+            Clear completed
+          </button>
+        </div>
       )
     }
   }

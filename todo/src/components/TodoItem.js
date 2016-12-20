@@ -6,7 +6,6 @@ export default class TodoItem extends Component {
   static propTypes = {
     todo: PropTypes.object.isRequired,
     editTodo: PropTypes.func.isRequired,
-    deleteTodo: PropTypes.func.isRequired,
     completeTodo: PropTypes.func.isRequired
   }
 
@@ -27,15 +26,8 @@ export default class TodoItem extends Component {
     this.setState({ editing: false })
   }
 
-  handleDelete = (id) => {
-    return [
-      this.props.deleteTodo(id),
-      this.props.showUndo()
-    ]
-  }
-
   render() {
-    const { todo, completeTodo, deleteTodo } = this.props
+    const { todo, completeTodo } = this.props
 
     let element
     if (this.state.editing) {

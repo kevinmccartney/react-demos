@@ -12,16 +12,16 @@ const App = ({todos, actions, filter, init}) => (
   <div className="todo-app">
     <Header />
     <div className="container">
-      <CallToAction todos={todos.present} init={init} />
+      <CallToAction todos={todos} init={init} />
       <AddTodo addTodo={actions.addTodo} initialize={actions.initialize} init={init}/>
-      <MainSection todos={todos.present} filter={filter} actions={actions} init={init} />
-      <Modals />
+      <MainSection todos={todos} filter={filter} actions={actions} init={init} />
+      <Modals actions={actions} />
     </div>
   </div>
 )
 
 App.propTypes = {
-  todos: PropTypes.object.isRequired,
+  todos: PropTypes.array.isRequired,
   filter: PropTypes.string.isRequired,
   actions: PropTypes.object.isRequired,
   init: PropTypes.bool.isRequired
