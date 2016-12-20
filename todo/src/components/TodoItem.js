@@ -27,6 +27,13 @@ export default class TodoItem extends Component {
     this.setState({ editing: false })
   }
 
+  handleDelete = (id) => {
+    return [
+      this.props.deleteTodo(id),
+      this.props.showUndo()
+    ]
+  }
+
   render() {
     const { todo, completeTodo, deleteTodo } = this.props
 
@@ -47,8 +54,12 @@ export default class TodoItem extends Component {
           <label onDoubleClick={this.handleDoubleClick}>
             {todo.text}
           </label>
-          <button className="destroy"
-                  onClick={() => deleteTodo(todo.id)} />
+          <button type="button"
+                  className="delete-todo-btn"
+                  data-toggle="modal"
+                  data-target="#delete-todo-modal">
+            Delete todo
+          </button>
         </div>
       )
     }

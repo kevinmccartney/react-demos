@@ -7,6 +7,7 @@ import Header from '../components/Header'
 import CallToAction from '../components/CallToAction'
 import AddTodo from '../components/AddTodo'
 import MainSection from '../components/MainSection'
+import Modals from '../components/Modals'
 
 const App = ({todos, actions, filter, init}) => (
   <div className="todo-app">
@@ -16,6 +17,7 @@ const App = ({todos, actions, filter, init}) => (
       <CallToAction todos={todos.present} init={init} />
       <AddTodo addTodo={actions.addTodo} initialize={actions.initialize} init={init}/>
       <MainSection todos={todos.present} filter={filter} actions={actions} init={init} />
+      <Modals />
     </div>
   </div>
 )
